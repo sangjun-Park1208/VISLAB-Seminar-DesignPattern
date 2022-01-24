@@ -2,7 +2,7 @@ import java.util.Iterator;
 
 public class Store_B_Iterator implements Iterator {
     private Store_B store_b;
-    String customer_name;
+    private String customer_name;
     private int index;
 
     Store_B_Iterator(Store_B store_b){
