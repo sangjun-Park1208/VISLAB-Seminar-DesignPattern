@@ -1,4 +1,4 @@
-abstract class DataMiner {
+public abstract class DataMiner {
      void mine(String dataPath) throws InterruptedException {
         String file = openFile(dataPath);
         String rawData = extractData(file);
