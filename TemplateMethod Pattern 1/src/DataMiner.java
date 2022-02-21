@@ -1,5 +1,5 @@
 public abstract class DataMiner {
-     void mine(String dataPath) throws InterruptedException {
+     void mine(String dataPath) throws InterruptedException { // template method
         String file = openFile(dataPath);
         String rawData = extractData(file);
         String data = parseData(rawData);
