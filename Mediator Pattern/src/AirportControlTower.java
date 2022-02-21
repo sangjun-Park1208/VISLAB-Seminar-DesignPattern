@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AirportControlTower implements Mediator {
-    private List<Aircraft> aircraftList; // 관제탑에서 관리할 비행기 목록.
+    private List<Aircraft> aircraftList;
 
     public AirportControlTower(){
         this.aircraftList = new ArrayList<>();
@@ -10,20 +10,27 @@ public class AirportControlTower implements Mediator {
 
 
     @Override
-    public void addAircraft(Aircraft aircraft) { // 관제탑에서 관리하는 실제 항공기 목록에 추가.
+    public void addAircraft(Aircraft aircraft) {
         this.aircraftList.add(aircraft);
-        System.out.println("==== 항공기 리스트 ====\n");
+        System.out.println("==== 항공기 리스트 ====");
         for(Aircraft a: this.aircraftList){
-            System.out.println(a.name + "\n");
+            System.out.println(a.name + "");
         }
         System.out.println("=====================\n리스트에 " + aircraft.name + "이 추가 되었습니다.\n\n");
 
     }
 
     @Override
-    public void sendMessage(String msg, Aircraft aircraft) { // 어떤 종류의 항공기에 어떤 메세지를 보낼 것인지.
+    public void sendMessage(Aircraft from, String msg, Aircraft aircraft) { // 추가
+        System.out.println("관제탑에서 전송 중 . . . \n");
+        from.receive(msg, aircraft);
+    }
+
+    @Override
+    public void sendtoAllMessage(String msg, Aircraft aircraft) {
+        System.out.println("관제탑에서 전송 중 . . . \n");
         for(Aircraft a : this.aircraftList) {
-            if(a != aircraft){ // 메세지를 보낸 자신을 제외한 다른 비행기들에게 전송. 필요에 맞게 커스텀
+            if(a != aircraft){
                 a.receive(msg, aircraft);
             }
         }

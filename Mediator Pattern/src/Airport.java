@@ -10,7 +10,8 @@ public class Airport {
         mediator.addAircraft(f22_b);
         mediator.addAircraft(airbus320_c);
 
-        boeing747_a.send("15:50분 부로 이륙 예정이다.\n");
-        f22_b.send("17:00 기준 인천공항 상공이다.\n");
+        boeing747_a.send(boeing747_a, "15:50분 부로 이륙 예정이다.\n", f22_b);
+        airbus320_c.send(airbus320_c, "현재 몇 번 게이트 쪽에 있는지?\n", boeing747_a);
+        f22_b.sendToAll("17:00 기준 인천공항 상공이다.\n");
     }
 }

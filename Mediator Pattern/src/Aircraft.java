@@ -7,6 +7,7 @@ public abstract class Aircraft {
         this.name = name;
     }
 
-    abstract void send(String msg);
+    abstract void sendToAll(String msg);
     abstract void receive(String msg, Aircraft aircraft);
+    abstract void send(Aircraft from, String msg, Aircraft aircraft);
 }
