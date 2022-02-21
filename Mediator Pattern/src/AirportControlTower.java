@@ -8,7 +8,6 @@ public class AirportControlTower implements Mediator {
         this.aircraftList = new ArrayList<>();
     }
 
-
     @Override
     public void addAircraft(Aircraft aircraft) {
         this.aircraftList.add(aircraft);
@@ -17,9 +16,7 @@ public class AirportControlTower implements Mediator {
             System.out.println(a.name + "");
         }
         System.out.println("=====================\n리스트에 " + aircraft.name + "이 추가 되었습니다.\n\n");
-
     }
-
     @Override
     public void sendMessage(Aircraft from, String msg, Aircraft aircraft) { // 추가
         System.out.println("관제탑에서 전송 중 . . . \n");
@@ -35,5 +32,4 @@ public class AirportControlTower implements Mediator {
             }
         }
     }
-
 }
