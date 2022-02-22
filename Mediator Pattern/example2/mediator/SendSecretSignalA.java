@@ -1,0 +1,34 @@
+package mediator;
+
+import java.util.ArrayList;
+
+public class SendSecretSignalA extends Mediator{
+    private String securityPassword;
+    public SendSecretSignalA(String securityPassword){
+        this.securityPassword = securityPassword;
+        this.createColleagues();
+        System.out.println("중재자 생성이 되었습니다.");
+    }
+
+    @Override
+    public void createColleagues() {
+        colleagues = new ArrayList<>();
+    }
+
+    @Override
+    public void mediate(String password, String user) {
+        // add - user 님의 Secret Signal 확인하기 출력
+        System.out.println(user+"님의 Secret Signal 확인하기");
+        // add - 유저에게 전달받은 비밀번호와 중재자 자체 비밀번호가 일치할시 SecretSignal 수신했다고 출력하기
+        if(password==this.securityPassword){
+            System.out.println("SecretSignal 수신");
+            for(Colleague c : colleagues){
+                System.out.print("<< " + c.getName());            
+                System.out.println(" SecretSignal을 수신하였습니다.");
+            }
+        }
+        else{
+            System.out.println("비밀번호 틀렸습니다");
+        }
+    }
+}
